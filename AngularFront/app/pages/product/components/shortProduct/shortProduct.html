@@ -1,0 +1,12 @@
+<div class="thumbnail">
+    <img src={{vm.apiUrl+vm.product.path}} title="{{vm.product.title}}" alt="{{vm.product.title}}" style="max-width:300px; max-height:500px;"/>
+    <div class="caption">
+        <h4 class="group inner list-group-item-heading">
+            <a ui-sref="products" ng-click="vm.openModalToCreateOrUpdateProduct({id:vm.product.id})">{{vm.product.title}}</a>
+        </h4>
+        <p class="group inner list-group-item-text">
+            {{vm.product.description}}
+        </p>
+    </div>
+    <button type="button" class="btn btn-danger btn-xs" ng-click="vm.openModalToConfirmRemoveProduct({id:vm.product.id})">Delete</button>
+</div>

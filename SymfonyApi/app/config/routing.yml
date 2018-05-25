@@ -1,0 +1,24 @@
+api_read_products:
+    pattern:   /api/products
+    defaults:  { _controller: AppBundle:Product:index }
+    methods:  [GET]
+
+product_new_or_edit:
+    pattern:   /api/products
+    defaults:  { _controller: AppBundle:Product:new }
+    methods:  [POST, OPTIONS]
+
+api_edit_product:
+    pattern:   /api/products
+    defaults:  { _controller: AppBundle:Product:edit }
+    methods:  [PUT, OPTIONS]
+
+api_show_product:
+    pattern:   /api/products/{id}
+    defaults:  { _controller: AppBundle:Product:show }
+    methods:  [GET]
+
+api_delete_product:
+    pattern:   /api/products/{id}
+    defaults:  { _controller: AppBundle:Product:delete }
+    methods:  [DELETE]

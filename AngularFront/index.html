@@ -1,0 +1,45 @@
+<!doctype html>
+<html ng-app="shop">
+  <head>
+    <!-- inject -->
+    <!-- lib -->
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+
+    <script src="bower_components/ng-flow/dist/ng-flow-standalone.js"></script>
+
+    <!-- <script src="/node_modules/ng-flow-2.7.1/ng-flow-2.7.1/dist/ng-flow.js"></script> -->
+
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+
+    <meta name="name" content="content" charset="utf-8">
+    <!-- endlib -->
+    <!-- my -->
+    <script src="public/js/main.js" ></script>
+    <!-- endmy -->
+    <!-- endinject -->
+  </head>
+  <body class="container-fluid" ng-controller="CoreController as cc">
+
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" ui-sref="home">Product</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li class="active"><a ui-sref="home">Home</a></li>
+          <li><a ui-sref="products">Products</a></li>
+          <li><a ui-sref="about">About</a></li>
+          <li><a ui-sref="contact">Contact me</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div ui-view></div>
+
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js" ></script>
+  </body>
+</html>

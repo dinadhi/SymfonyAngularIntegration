@@ -1,0 +1,41 @@
+<h1>Products</h1>
+
+<hr>
+
+<div>
+    <button type="button" class="btn btn-default" ng-click="vm.openModalToCreateOrUpdate()" style="margin-bottom: 10px">Create product</button>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-6 col-md-4" ng-repeat="product in vm.products.items">
+        <div ng-if="product">
+          <short-product product="product"
+                         open-modal-to-create-or-update-product="vm.openModalToCreateOrUpdate(id)"
+                         open-modal-to-confirm-remove-product="vm.openModalToConfirmRemove(id)">
+          </short-product>
+        </div>
+      </div>
+    </div>
+
+    <uib-pagination ng-if="vm.products.totalRows > 3"
+                    total-items="vm.products.totalRows"
+                    ng-model="vm.products.pageNumber"
+                    items-per-page="vm.products.pageSize"
+                    ng-change="vm.pageChanged()">
+    </uib-pagination>
+
+  </div>
+
+  <script type="text/ng-template" id="modalConfirmRemove.html">
+      <div class="modal-header">
+            <h3 class="modal-title">Confirm!</h3>
+        </div>
+        <div class="modal-body">
+            <p class="lead">Are you sure you want to delete this product?</p>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" type="button" ng-click="vm.ok()">OK</button>
+            <button class="btn btn-warning" type="button" ng-click="vm.cancel()">Cancel</button>
+        </div>
+    </script>
+</div>

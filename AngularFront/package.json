@@ -1,0 +1,27 @@
+{
+  "name": "products",
+  "version": "1.0.0",
+  "description": "1. npm install",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "a6Brgeuka@gmail.com",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-connect": "^2.3.1",
+    "gulp-inject": "^3.0.0",
+    "gulp-ngmin": "^0.3.0",
+    "gulp-uglify": "^1.5.2"
+  },
+  "dependencies": {
+    "angular": "^1.5.0",
+    "angular-animate": "^1.5.0",
+    "angular-ui-bootstrap": "^1.1.2",
+    "angular-ui-router": "^0.2.18",
+    "bootstrap": "^3.3.6",
+    "jquery": "^2.2.0"
+  }
+}

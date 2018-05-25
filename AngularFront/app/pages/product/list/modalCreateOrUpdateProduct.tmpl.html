@@ -1,0 +1,69 @@
+<div flow-init="vm.config" flow-name="vm.upload.flow"
+     flow-file-success="vm.uploadSuccess( $file, $message, $flow )"
+     flow-file-error="vm.uploadError( $file, $message, $flow )">
+    <form name="FormCreateProduct" autocomplete="off" novalidate>
+        <div class="modal-header">
+            <h3 class="modal-title">Create or Update product</h3>
+        </div>
+        <div class="modal-body">
+            <div class="form-group">
+                <label for="title">Title:</label>
+                <input type="text" ng-model="vm.product.title" class="form-control" name="title" id="title" placeholder="Title" required>
+                <div ng-messages="FormCreateProduct.title.$error">
+                    <div ng-message='required' ng-if="FormCreateProduct.title.minlength">Короткое название</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="body">Description:</label>
+                <textarea ng-model="vm.product.description" class="form-control" name="body" id="body" rows="8" cols="40" ng-required="true"></textarea>
+            </div>
+
+            <div class="form-group">
+
+                <div ng-show="!$flow.files.length && !vm.product.path" style="max-width:200px; max-height: 150px;">
+                    <img src="public/images/no-image.png">
+                </div>
+
+                <div ng-show="vm.product.path && !$flow.files.length">
+                    <img src="{{vm.baseurl+vm.product.path}}" style="max-width: 300px; max-height: 300px;">
+                </div>
+
+                <div ng-show="$flow.files.length" style="margin-bottom: 10px;">
+                    <img flow-img="$flow.files[0]" style="max-width: 200px; max-height: 150px;"/>
+                </div>
+
+            <span class="btn btn-primary" ng-show="!$flow.files.length" flow-btn="" flow-attrs="{'accept': 'image/*'}">
+              Select image
+              <input type="file" style="visibility: hidden; position: absolute;">
+            </span>
+
+            <span class="btn btn-info ng-hide" ng-show="$flow.files.length" flow-btn="" flow-attrs="{'accept': 'image/*'}">
+              Change
+              <input type="file" style="visibility: hidden; position: absolute;">
+            </span>
+
+            <span class="btn btn-danger ng-hide" ng-show="$flow.files.length" ng-click="$flow.cancel()">
+            Remove
+            </span>
+
+            </div>
+
+        </div>
+        <div class="modal-footer">
+            <span ng-if="vm.productId">
+                <button ng-disabled="FormCreateProduct.$invalid || !vm.product.path"
+                        class="btn btn-primary" type="button" ng-click="vm.ok()">
+                    OK
+                </button>
+            </span>
+            <span ng-if="!vm.productId">
+                <button ng-disabled="FormCreateProduct.$invalid || !$flow.files.length"
+                        class="btn btn-primary" type="button" ng-click="vm.ok()">
+                    OK
+                </button>
+            </span>
+            <button class="btn btn-warning" type="button" ng-click="vm.cancel()">Cancel</button>
+        </div>
+    </form>
+</div>
